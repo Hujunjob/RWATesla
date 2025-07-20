@@ -32,7 +32,7 @@ interface PrimusZKTLS {
 const VerifyPage = () => {
   const router = useRouter()
   const { address } = useAccount()
-  const { submitToBlockchain, isSubmitting, isVerified, teslaInfo, referralCode } = useTeslaRWA()
+  const { submitToBlockchain, isSubmitting, isVerified, teslaInfo } = useTeslaRWA()
   const [isVerifying, setIsVerifying] = useState(false)
   const [vehicleData, setVehicleData] = useState<VehicleData | null>(null)
   const [attestation, setAttestation] = useState<Attestation | null>(null)
@@ -114,10 +114,18 @@ const VerifyPage = () => {
         if (attestationData && attestationData.model && attestationData.referralCode) {
           let model = "Tesla Model 3"
           switch(attestationData.model){
-            case "m3": model =  "Tesla Model 3";
-            case "ms": model =  "Tesla Model S";
-            case "my": model =  "Tesla Model Y";
-            case "mx": model =  "Tesla Model X";
+            case "m3": 
+              model = "Tesla Model 3";
+              break;
+            case "ms": 
+              model = "Tesla Model S";
+              break;
+            case "my": 
+              model = "Tesla Model Y";
+              break;
+            case "mx": 
+              model = "Tesla Model X";
+              break;
           }
           setVehicleData({
             model: model,
@@ -160,11 +168,6 @@ const VerifyPage = () => {
     }
   }
 
-  const resetVerification = () => {
-    setVehicleData(null)
-    setAttestation(null)
-    setError(null)
-  }
 
   const handleSubmitToBlockchain = async () => {
     if (!attestation) {

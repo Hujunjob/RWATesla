@@ -36,7 +36,7 @@ const Header = () => {
   const navLinks = [
     { title: "首页", icon: <Home size={18} />, href: "/" },
     { title: "资产验证", icon: <BarChartHorizontal size={18} />, href: "/verify" },
-    { title: "信用借贷", icon: <BarChartHorizontal size={18} />, href: "/loan" },
+    { title: "信用借贷", icon: <BarChartHorizontal size={18} />, href: "/loans" },
     { title: "关于我们", icon: <HelpCircle size={18} />, href: "/about" },
   ]
 

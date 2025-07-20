@@ -9,7 +9,10 @@
       "Bash(echo:*)",
       "Bash(mkdir:*)",
       "Bash(cp:*)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(npm run dev:*)",
+      "Bash(npm run lint)",
+      "Bash(curl:*)"
     ],
     "deny": []
   }
