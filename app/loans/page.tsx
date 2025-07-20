@@ -12,25 +12,26 @@ import { useTeslaRWA } from "@/hooks/useTeslaRWA"
 import { useLoanContract } from "@/hooks/useLoanContract"
 import Image from "next/image"
 import { formatEther } from "viem"
+import model3Image from "@/assets/model3.jpeg"
 
 const LoansPage = () => {
   const router = useRouter()
   const { address } = useAccount()
   const { isVerified, teslaInfo } = useTeslaRWA()
-  const { 
-    hasLoan, 
-    loanInfo, 
-    loanAmount, 
-    requestLoan, 
-    repayLoan, 
-    isRequestingLoan 
+  const {
+    hasLoan,
+    loanInfo,
+    loanAmount,
+    requestLoan,
+    repayLoan,
+    isRequestingLoan
   } = useLoanContract()
 
   // 获取车型图片
   const getCarImage = (model: string) => {
     // 先尝试 AVIF 格式，如果不支持则使用占位符
     if (model.toLowerCase().includes("model 3") || model.includes("m3")) {
-      return "/assets/model3.avif"
+      return "/assets/model3.jpeg"
     }
     return "/assets/models.avif"
   }
@@ -38,7 +39,7 @@ const LoansPage = () => {
   // 格式化车型名称
   const formatCarModel = (model: string) => {
     if (!model) return "未知型号"
-    switch(model){
+    switch (model) {
       case "m3": return "Tesla Model 3";
       case "ms": return "Tesla Model S";
       case "my": return "Tesla Model Y";
@@ -60,15 +61,15 @@ const LoansPage = () => {
       // 可以显示成功消息
     }
   }
-  
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      
+
       <main className="flex-grow flex items-center justify-center pt-16">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-2xl mx-auto">
-            
+
             {/* Header Section */}
             <div className="text-center mb-8">
               <div className="w-20 h-20 rounded-full glass-card border border-white/10 flex items-center justify-center mx-auto mb-6">
@@ -94,9 +95,9 @@ const LoansPage = () => {
               <Alert className="mb-6">
                 <AlertTriangle className="h-4 w-4" />
                 <AlertDescription>
-                  请先验证您的特斯拉车辆以获得借贷资格。 
-                  <Button 
-                    variant="link" 
+                  请先验证您的特斯拉车辆以获得借贷资格。
+                  <Button
+                    variant="link"
                     className="p-0 h-auto font-normal"
                     onClick={() => router.push("/verify")}
                   >
@@ -118,12 +119,10 @@ const LoansPage = () => {
                 <CardContent>
                   <div className="flex gap-6 items-center">
                     <div className="relative w-32 h-20 rounded-lg overflow-hidden">
-                      <Image
-                        src={getCarImage(teslaInfo.model)}
-                        alt={formatCarModel(teslaInfo.model)}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      <img
+                        src={model3Image.src}
+                        alt="Tesla Model 3"
+                        className="w-full h-full object-cover opacity-90"
                       />
                     </div>
                     <div className="flex-1 space-y-2">
@@ -133,11 +132,10 @@ const LoansPage = () => {
                       </div>
                       <div className="flex justify-between items-center">
                         <span className="font-medium text-muted-foreground">交付状态：</span>
-                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                          teslaInfo.isDeliveredOrPostDelivered 
+                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${teslaInfo.isDeliveredOrPostDelivered
                             ? 'bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400'
                             : 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/20 dark:text-yellow-400'
-                        }`}>
+                          }`}>
                           {teslaInfo.isDeliveredOrPostDelivered ? "已交付" : "未交付"}
                         </span>
                       </div>
@@ -163,7 +161,7 @@ const LoansPage = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
-                  
+
                   {/* 借贷信息 */}
                   <div className="bg-muted/50 rounded-lg p-4 space-y-3">
                     <div className="flex justify-between items-center">
@@ -174,11 +172,10 @@ const LoansPage = () => {
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="font-medium">借贷状态：</span>
-                      <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                        hasLoan && loanInfo?.active
+                      <span className={`px-2 py-1 rounded-full text-xs font-medium ${hasLoan && loanInfo?.active
                           ? 'bg-red-100 text-red-800 dark:bg-red-900/20 dark:text-red-400'
                           : 'bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400'
-                      }`}>
+                        }`}>
                         {hasLoan && loanInfo?.active ? "已借贷" : "可借贷"}
                       </span>
                     </div>
@@ -209,7 +206,7 @@ const LoansPage = () => {
                   {/* 操作按钮 */}
                   <div className="flex gap-3 justify-center">
                     {!hasLoan || !loanInfo?.active ? (
-                      <Button 
+                      <Button
                         onClick={handleRequestLoan}
                         disabled={isRequestingLoan || !address || !isVerified}
                         className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white px-8 py-3"
@@ -227,7 +224,7 @@ const LoansPage = () => {
                         )}
                       </Button>
                     ) : (
-                      <Button 
+                      <Button
                         onClick={handleRepayLoan}
                         disabled={isRequestingLoan}
                         variant="outline"
@@ -260,8 +257,8 @@ const LoansPage = () => {
 
             {/* Back Button */}
             <div className="text-center mt-8">
-              <Button 
-                variant="ghost" 
+              <Button
+                variant="ghost"
                 className="text-muted-foreground hover:text-primary flex items-center gap-2 mx-auto"
                 onClick={() => router.push("/")}
               >
@@ -269,11 +266,11 @@ const LoansPage = () => {
                 返回首页
               </Button>
             </div>
-            
+
           </div>
         </div>
       </main>
-      
+
       <Footer />
     </div>
   )
