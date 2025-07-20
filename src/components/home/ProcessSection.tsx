@@ -15,7 +15,7 @@ const ProcessSection = () => {
     {
       icon: <CheckCircle2 size={32} className="text-secondary" />,
       title: "获得贷款",
-      description: "审批通过后，贷款资金将在12小时内直接转入您的指定账户"
+      description: "审批通过后，贷款资金将在1分钟内直接转入您的指定账户"
     },
     {
       icon: <Wallet size={32} className="text-green-400" />,
@@ -32,7 +32,7 @@ const ProcessSection = () => {
             简单<span className="text-primary">四步</span>，快速获取资金
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            我们革新的贷款流程基于区块链技术与API集成，将传统需要数周的贷款流程缩短至最快12小时
+            我们革新的贷款流程基于区块链技术与API集成，将传统需要数周的贷款流程缩短至最快1分钟
           </p>
         </div>
 

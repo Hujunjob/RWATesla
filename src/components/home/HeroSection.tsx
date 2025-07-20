@@ -75,11 +75,11 @@ const HeroSection = () => {
                 <p className="text-gray-400 text-sm">审批通过率</p>
               </div>
               <div className="glass-card rounded-lg px-5 py-3">
-                <p className="text-accent font-mono text-2xl font-semibold">12小时</p>
+                <p className="text-accent font-mono text-2xl font-semibold">1分钟</p>
                 <p className="text-gray-400 text-sm">资金到账时间</p>
               </div>
               <div className="glass-card rounded-lg px-5 py-3">
-                <p className="text-accent font-mono text-2xl font-semibold">150万</p>
+                <p className="text-accent font-mono text-2xl font-semibold">100Mon</p>
                 <p className="text-gray-400 text-sm">最高贷款额度</p>
               </div>
             </div>
@@ -143,14 +143,14 @@ const HeroSection = () => {
               <Clock className="text-accent" size={24} />
             </div>
             <h3 className="text-xl font-semibold mb-2">快速审批</h3>
-            <p className="text-gray-400">简化的审批流程，最快12小时内完成审核，资金当日到账。</p>
+            <p className="text-gray-400">简化的审批流程，最快1分钟内完成审核，资金当日到账。</p>
           </div>
           <div className="glass-card rounded-xl p-6 border border-white/10 transition-transform hover:translate-y-[-5px]">
             <div className="w-12 h-12 rounded-lg bg-secondary/20 flex items-center justify-center mb-4">
               <Layers className="text-secondary" size={24} />
             </div>
             <h3 className="text-xl font-semibold mb-2">灵活额度</h3>
-            <p className="text-gray-400">基于车辆价值评估，提供高达车辆估值80%的贷款额度，最高可达150万。</p>
+            <p className="text-gray-400">基于车辆价值评估，提供高达车辆估值80%的贷款额度，最高可达100Mon。</p>
           </div>
         </div>
       </div>

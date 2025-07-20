@@ -8,8 +8,8 @@ const TestimonialSection = () => {
       position: "企业家",
       testimonial: "作为一名Tesla Model X的车主，我需要一笔资金用于新项目的启动。RWA贷款平台的无抵押贷款让我在不影响日常用车的情况下快速获得了融资，整个过程透明高效。",
       car: "Tesla Model X",
-      amount: "¥65万",
-      approved: "10小时"
+      amount: "65Mon",
+      approved: "1分钟"
     },
     {
       name: "李女士",
@@ -17,8 +17,8 @@ const TestimonialSection = () => {
       position: "医疗专家",
       testimonial: "平台的审批速度令人印象深刻。我周一申请，周二资金就已到账。作为医生，我的工作日程紧张，这种高效的服务真的为我节省了大量时间和精力。",
       car: "Tesla Model 3",
-      amount: "¥38万",
-      approved: "9小时"
+      amount: "38Mon",
+      approved: "9分钟"
     },
     {
       name: "张先生",
@@ -26,8 +26,8 @@ const TestimonialSection = () => {
       position: "软件工程师",
       testimonial: "这是我第一次申请无抵押贷款，平台的客服耐心回答了我所有问题。Tesla车辆验证系统运行流畅，整个过程数字化且无纸化，非常符合我对科技的期待。",
       car: "Tesla Model Y",
-      amount: "¥42万",
-      approved: "12小时"
+      amount: "42Mon",
+      approved: "12分钟"
     }
   ]
 
