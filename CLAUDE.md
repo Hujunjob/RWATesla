@@ -9,6 +9,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - **前端框架**: Next.js + TypeScript
 - **UI 组件库**: Shadcn UI  
+- **智能合约**: Foundry
 - **区块链前端**: Rainbow+wagmi
 - **构建工具**: Vite
 - **密码学层**: Primus SDK (zkTLS/zkFHE) 文档： @docs/primus.md
