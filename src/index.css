@@ -1,0 +1,131 @@
+/**
+ * **IMPORTANT** Never break the original structure, only add highly customized new styles
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 92% 7%; /* Deep space blue #0A1128 */
+    --foreground: 0 0% 100%; /* White text #FFFFFF */
+    --card: 222 92% 10%; /* Slightly lighter than background */
+    --card-foreground: 0 0% 92%; /* Light gray text #E9E9E9 */
+    --popover: 222 92% 10%;
+    --popover-foreground: 0 0% 92%;
+    --primary: 198 76% 35%; /* Tech blue #1282A2 */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 262 100% 65%; /* Neon purple #8A4FFF */
+    --secondary-foreground: 0 0% 100%;
+    --muted: 222 37% 17%;
+    --muted-foreground: 215 16% 65%;
+    --accent: 191 100% 53%; /* Electric blue #0AEFFF */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 222 37% 20%;
+    --input: 222 37% 20%;
+    --ring: 198 76% 35%;
+    --chart-1: 191 100% 53%;
+    --chart-2: 262 100% 65%;
+    --chart-3: 198 76% 35%;
+    --chart-4: 222 92% 7%;
+    --chart-5: 222 37% 17%;
+    --radius: 0.75rem;
+
+    --sidebar-background: 222 92% 10%;
+    --sidebar-foreground: 0 0% 92%;
+    --sidebar-primary: 198 76% 35%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 262 100% 65%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 222 37% 20%;
+    --sidebar-ring: 191 100% 53%;
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 222 92% 7%;
+    --card: 0 0% 98%;
+    --card-foreground: 222 92% 7%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 92% 7%;
+    --primary: 198 76% 35%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 262 100% 65%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 16% 45%;
+    --accent: 191 100% 53%;
+    --accent-foreground: 222 92% 7%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 198 76% 35%;
+    --chart-1: 191 100% 53%;
+    --chart-2: 262 100% 65%;
+    --chart-3: 198 76% 35%;
+    --chart-4: 222 92% 7%;
+    --chart-5: 222 37% 17%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Rajdhani', sans-serif;
+    @apply font-semibold tracking-tight;
+  }
+  .font-mono {
+    font-family: 'Roboto Mono', monospace;
+  }
+  
+  /* Custom glassmorphism effect */
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-md border border-white/10;
+  }
+  
+  /* Neon glow effects */
+  .neon-border-primary {
+    @apply border border-primary/80 shadow-[0_0_10px_0_theme(colors.primary.DEFAULT)];
+  }
+  .neon-border-accent {
+    @apply border border-accent/80 shadow-[0_0_10px_0_theme(colors.accent.DEFAULT)];
+  }
+  .neon-border-secondary {
+    @apply border border-secondary/80 shadow-[0_0_10px_0_theme(colors.secondary.DEFAULT)];
+  }
+  
+  /* Tech-style buttons */
+  .btn-tech {
+    @apply relative overflow-hidden transition-all duration-300;
+    background: linear-gradient(90deg, theme(colors.primary.DEFAULT), theme(colors.secondary.DEFAULT));
+  }
+  .btn-tech::before {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity duration-300;
+    background: linear-gradient(90deg, theme(colors.accent.DEFAULT), theme(colors.primary.DEFAULT));
+  }
+  .btn-tech:hover::before {
+    @apply opacity-100;
+  }
+  .btn-tech span {
+    @apply relative z-10;
+  }
+  
+  /* Skewed sections */
+  .skew-section {
+    @apply relative transform -skew-y-2 my-16 py-16;
+  }
+  .skew-section > * {
+    @apply transform skew-y-2;
+  }
+}
