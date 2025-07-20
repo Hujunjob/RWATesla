@@ -111,14 +111,14 @@ const VerifyPage = () => {
             case "mx": model =  "Tesla Model X";
           }
           setVehicleData({
-            model: attestationData.model,
+            model: model,
             delivered:attestationData.isDeliveredOrPostDelivered,
             referralCode: attestationData.referralCode
           })
         } else {
           // Simulate successful verification with mock data
           setVehicleData({
-            model: "Model 3",
+            model: "Tesla Model 3",
             delivered:false,
             referralCode: "000"
           })
