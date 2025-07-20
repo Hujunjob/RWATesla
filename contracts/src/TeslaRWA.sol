@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import "@primuslabs/zktls-contracts/src/IPrimusZKTLS.sol";
+import "@primuslabs/zktls-contracts/IPrimusZKTLS.sol";
 
 contract TeslaRWA {
     address public primusAddress;
@@ -32,7 +32,7 @@ contract TeslaRWA {
     }
     
     function verifyTeslaOwnership(Attestation calldata attestation) external {
-        require(IPrimusZKTLS(primusAddress).verifyAttestation(attestation), "Invalid Primus attestation");
+        IPrimusZKTLS(primusAddress).verifyAttestation(attestation);
         
         string memory data = attestation.data;
         
@@ -84,15 +84,15 @@ contract TeslaRWA {
         bytes memory keyBytes = abi.encodePacked("\"", key, "\":\"");
         
         for (uint i = 0; i <= data.length - keyBytes.length; i++) {
-            bool match = true;
+            bool isMatch = true;
             for (uint j = 0; j < keyBytes.length; j++) {
                 if (data[i + j] != keyBytes[j]) {
-                    match = false;
+                    isMatch = false;
                     break;
                 }
             }
             
-            if (match) {
+            if (isMatch) {
                 uint startIndex = i + keyBytes.length;
                 uint endIndex = startIndex;
                 

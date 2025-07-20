@@ -1,7 +1,15 @@
 {
   "permissions": {
     "allow": [
-      "Bash(forge init:*)"
+      "Bash(forge init:*)",
+      "Bash(forge install:*)",
+      "Bash(rm:*)",
+      "Bash(touch:*)",
+      "Bash(forge build:*)",
+      "Bash(echo:*)",
+      "Bash(mkdir:*)",
+      "Bash(cp:*)",
+      "Bash(npm run build:*)"
     ],
     "deny": []
   }
