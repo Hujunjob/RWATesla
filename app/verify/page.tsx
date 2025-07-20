@@ -225,17 +225,9 @@ const VerifyPage = () => {
                     
                     <div className="flex gap-3 justify-center">
                       <Button 
-                        variant="outline"
-                        onClick={resetVerification}
-                        className="border-primary text-primary hover:bg-primary hover:text-white"
-                      >
-                        重新验证
-                      </Button>
-                      <Button 
-                        onClick={() => router.push("/loans")}
                         className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white"
                       >
-                        申请借贷
+                        RWA资产上链
                       </Button>
                     </div>
                   </div>
